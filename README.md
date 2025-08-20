@@ -84,7 +84,7 @@ The authorization determines a request based on `{subject, object, action}`, whi
 2. **object**: the URL path for the web resource like "dataset1/item1"
 3. **action**: HTTP method like GET, POST, PUT, DELETE, or the high-level actions you defined like "read-file", "write-blog"
 
-For how to write authorization policy and other details, please refer to the [Casbin's documentation](https://casbin.org/docs/getting-started).
+For how to write authorization policy and other details, please refer to the [Casbin's documentation](https://casbin.org/docs/get-started).
 
 
 ## Casbin Model and Policy
