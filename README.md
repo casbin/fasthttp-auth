@@ -1,8 +1,12 @@
 # fasthttp-auth
 
-Authorization middleware for `fasthttp` based on [Casbin](https://github.com/casbin/casbin).
+[![Go Version](https://img.shields.io/github/go-mod/go-version/casbin/fasthttp-auth)](https://go.dev/)
+[![Go Report Card](https://goreportcard.com/badge/github.com/casbin/fasthttp-auth)](https://goreportcard.com/report/github.com/casbin/fasthttp-auth)
+[![License](https://img.shields.io/github/license/casbin/fasthttp-auth)](https://github.com/casbin/fasthttp-auth/blob/master/LICENSE)
+[![Casbin](https://img.shields.io/badge/Casbin-v2.120.0-blue.svg)](https://github.com/casbin/casbin)
+[![fasthttp](https://img.shields.io/badge/fasthttp-v1.65.0-green.svg)](https://github.com/valyala/fasthttp)
 
-References: [fasthttp](https://github.com/valyala/fasthttp), [Casbin Middlewares](https://casbin.org/docs/middlewares)
+Authorization middleware for [fasthttp](https://github.com/valyala/fasthttp) using [Casbin](https://github.com/casbin/casbin).
 
 ## Installation
 
@@ -12,7 +16,7 @@ go get github.com/casbin/fasthttp-auth
 
 ## Quick Start
 
-### 1. Create Configuration Files
+### 1. Configuration Files
 
 **`authz_model.conf`**:
 ```conf
@@ -36,7 +40,7 @@ p, alice, /data1, GET
 p, bob, /data2, POST
 ```
 
-### 2. Run Your Application
+### 2. Usage
 
 ```go
 package main
@@ -76,47 +80,25 @@ curl -H 'X-User: bob' http://localhost:8081/data2 -X POST
 curl http://localhost:8081/
 ```
 
-## How to Control the Access
+## How It Works
 
-The authorization determines a request based on `{subject, object, action}`, which means what `subject` can perform what `action` on what `object`. In this middleware, the meanings are:
-
-1. **subject**: the logged-on user name (extracted from `X-User` header, defaults to `anonymous`)
-2. **object**: the URL path for the web resource like "dataset1/item1"
-3. **action**: HTTP method like GET, POST, PUT, DELETE, or the high-level actions you defined like "read-file", "write-blog"
-
-For how to write authorization policy and other details, please refer to the [Casbin's documentation](https://casbin.org/docs/get-started).
-
-
-## Casbin Model and Policy
-
-- `authz_model.conf`: Basic ACL model (r=sub,obj,act; p=sub,obj,act)
-- `authz_policy.csv`: Example policy file
+Authorization is based on `{subject, object, action}`:
+- **Subject**: User from `X-User` header (defaults to `anonymous`)
+- **Object**: URL path being accessed
+- **Action**: HTTP method (GET, POST, etc.)
 
 ## Examples
 
-See `example/main.go` for a complete working example.
-
-### Running the Example
+See `example/main.go` for a complete example.
 
 ```bash
-# Clone the repository
-git clone https://github.com/casbin/fasthttp-auth.git
-cd fasthttp-auth
-
-# Run the example (includes built-in permission tests)
 go run ./example
-
-# Or specify a custom port
-PORT=8082 go run ./example
 ```
-
-The example will:
-1. Run permission tests automatically
-2. Start an HTTP server on port 8081 (or custom port)
-3. Auto-close after 30 seconds
-
 
 ## License
 
-Apache-2.0, see `LICENSE` file.
+Apache-2.0, see [LICENSE](LICENSE) file
+
+
+
 
