@@ -2,7 +2,7 @@
 
 [![Go Version](https://img.shields.io/github/go-mod/go-version/casbin/fasthttp-auth)](https://go.dev/)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/casbin/fasthttp-auth/ci.yml?branch=master)](https://github.com/casbin/fasthttp-auth/actions/workflows/ci.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/casbin/fasthttp-auth)](https://goreportcard.com/report/github.com/casbin/fasthttp-auth)
+[![Go Report Card](https://goreportcard.com/badge/github.com/casbin/fasthttp-auth?t=1)](https://goreportcard.com/report/github.com/casbin/fasthttp-auth)
 [![License](https://img.shields.io/github/license/casbin/fasthttp-auth)](https://github.com/casbin/fasthttp-auth/blob/master/LICENSE)
 [![Release](https://img.shields.io/github/v/release/casbin/fasthttp-auth)](https://github.com/casbin/fasthttp-auth/releases)
 [![Casbin](https://img.shields.io/badge/Casbin-v2.120.0-blue.svg)](https://github.com/casbin/casbin)
